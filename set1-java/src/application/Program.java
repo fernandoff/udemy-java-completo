@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 import entities.LogEntry;
+import entities.LogEntry2;
 
 public class Program {
 
@@ -17,12 +18,15 @@ public class Program {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Enter file full path: ");
-		String path = sc.nextLine();
+		//System.out.print("Enter file full path: ");
+		//String path = sc.nextLine();		
+		
+		String path = "G:\\PROGRAMACAO\\JavaEE\\udemy-java-completo\\set1.txt";
+		System.out.println("Path = " + path);		
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
-			Set<LogEntry> set = new HashSet<>();
+			Set<LogEntry2> set = new HashSet<>();
 			
 			String line = br.readLine();
 			while (line != null) {
@@ -31,7 +35,7 @@ public class Program {
 				String username = fields[0];
 				Date moment = Date.from(Instant.parse(fields[1]));
 				
-				set.add(new LogEntry(username, moment));
+				set.add(new LogEntry2(username, moment));
 				
 				line = br.readLine();
 			}	
